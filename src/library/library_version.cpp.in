@@ -1,0 +1,16 @@
+#include "library_version.h"
+
+namespace config {
+
+const char* VersionInfo::ProjectName        = "@PROJECT_NAME@";
+const char* VersionInfo::ProjectDisplayName = "@PROJECT_DISPLAY_NAME@";
+const char* VersionInfo::ProjectDescription = "@PROJECT_DESCRIPTION@";
+const char* VersionInfo::ProjectVersion     = "@PROJECT_VERSION@";
+
+const char* VersionInfo::BuildDate = __DATE__ " " __TIME__;
+const char* VersionInfo::BuildNode = "@BUILD_NODE@";
+const char* VersionInfo::BuildType = "@CMAKE_BUILD_TYPE@";
+
+const char* VersionInfo::Info = "@PROJECT_NAME@ v@PROJECT_VERSION@ (" __DATE__ " " __TIME__ ")";
+
+} // namespace config

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>20</y>
+      <w>380</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+config::IServiceDiscoverer
+--
+
+--
++ SetCallback(callback: OnDiscoverCallback)
++ BeginDiscover()
++ EndDiscover()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>150</y>
+      <w>380</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+config::IService
+--
+
+--
++ GetConfigToFile(filter: Filter, path: string)
++ GetConfigToStream(filter: Filter, stream: ostream)
++ GetConfigAsString(filter: Filter): string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>280</y>
+      <w>380</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+config::ICache
+--
+
+--
++ AddFile(filter: Filter)
++ Delete(filter: Filter)
++ DeleteAll()
++ DeleteAllByName(name: string)
++ DeleteAllByInstance(instance: string)
++ GetPath(filter: Filter)
++ GetContentAsString(filter: Filter): string
++ GetContentAsStream(filter: Filter): stream
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>20</y>
+      <w>530</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+config::ConfigProvider&lt;TConfigLoader, TConfig&gt;
+--
+- discoverer: IServiceDiscoverer
+- services: vector&lt;IService&gt;
+- cache: ICache
+--
++ Constructor(discoverer: IServiceDiscoverer, cache: ICache)
++ Destructor()
++ Load(): TConfig
+# Start()
+# Stop()
+# OnServiceDiscovered(service: IService)
+# OnConfigurationAvailable(filter: Filter, revision: int)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>520</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+config::Filter
+--
++ Name: string
++ Version: Version
++ Instance: string
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
