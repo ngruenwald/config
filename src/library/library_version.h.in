@@ -1,0 +1,27 @@
+#pragma once
+
+#ifndef __LIB_@PROJECT_NAME@_VERSION_H__
+#define __LIB_@PROJECT_NAME@_VERSION_H__
+
+#define CONFIG_HEADER_VERSION  "@PROJECT_VERSION@"
+
+namespace config {
+
+struct VersionInfo
+{
+    static const char* ProjectName;
+    static const char* ProjectDisplayName;
+    static const char* ProjectDescription;
+    static const char* ProjectVersion;
+
+    static const char* BuildDate;
+    static const char* BuildNode;
+    static const char* BuildType;
+
+    static const char* Info;
+
+}; // struct VersionInfo
+
+} // namespace config
+
+#endif // __LIB_@PROJECT_NAME@_VERSION_H__

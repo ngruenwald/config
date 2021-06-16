@@ -1,0 +1,4 @@
+#pragma once
+
+#define TEST_FOLDER "@CMAKE_CURRENT_BINARY_DIR@"
+
