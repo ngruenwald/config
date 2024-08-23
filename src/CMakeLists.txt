@@ -21,6 +21,11 @@ set_target_properties(
 #
 
 add_subdirectory(library)
-add_subdirectory(unit_tests)
 
-add_subdirectory(example_app)
+if(CONFIG_UNIT_TESTS)
+  add_subdirectory(unit_tests)
+endif()
+
+if(CONFIG_EXTRAS)
+  add_subdirectory(example_app)
+endif()
